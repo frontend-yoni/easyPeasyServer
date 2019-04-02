@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        background: orangered;
+    }
+</style>
+
+<script>
+
+    window.onload = async function () {
+        document.addEventListener('click', fetchPlease);
+    };
+
+    async function fetchPlease() {
+        let data = await fetch('/twitterPlease');
+
+        let result = await data.json();
+        document.body.innerHTML = JSON.stringify(result);
+
+        return result;
+    }
+</script>
+
+<body>
+
+</body>
+</html>
